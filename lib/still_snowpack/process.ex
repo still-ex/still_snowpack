@@ -19,7 +19,7 @@ defmodule Still.Snowpack.Process do
     if Mix.env() == :prod do
       Still.Compiler.CompilationStage.on_compile(&__MODULE__.build/0)
     else
-      {:ok, _} = Still.Node.Process.invoke("start", [configuration()])
+      {:ok, _} = Still.Node.Process.invoke("start", [configuration()], timeout: :infinity)
     end
 
     {:noreply, state}
