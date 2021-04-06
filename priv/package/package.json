@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "snowpack": "^3.2.2"
+    "snowpack": "3.0.13"
   }
 }
