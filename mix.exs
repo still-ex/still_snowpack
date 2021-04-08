@@ -21,7 +21,7 @@ defmodule Still.Snowpack.MixProject do
 
   defp deps do
     [
-      {:still, "~> 0.4.0"},
+      {:still, "~> 0.5.0"},
       {:still_node, "~> 0.1.0"}
     ]
   end
