@@ -19,14 +19,9 @@ module.exports.build = async (opts) => {
   process.chdir(opts.inputPath);
   const config = await createConfig(opts);
 
-  const { result } = await snowpack.build({ config });
+  const result = await snowpack.build({ config });
 
-  const slimResult = Object.keys(result || {}).reduce((memo, key) => {
-    memo[result[key]["source"]] = key;
-    return memo;
-  }, {});
-
-  return slimResult;
+  return result;
 };
 
 function createConfig({ inputPath, outputPath }) {

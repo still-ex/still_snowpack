@@ -12,7 +12,7 @@ defmodule Still.Snowpack.Process do
   end
 
   def init(_) do
-    {:ok, %{}, {:continue, :start}}
+    {:ok, %{manifest: nil}, {:continue, :start}}
   end
 
   def handle_continue(:start, state) do
@@ -25,14 +25,14 @@ defmodule Still.Snowpack.Process do
     {:noreply, state}
   end
 
-  def handle_call(:build, _from, %{build: build} = state) do
-    {:reply, build, state}
+  def handle_call(:build, _from, %{manifest: manifest} = state) when not is_nil(manifest) do
+    {:reply, manifest, state}
   end
 
   def handle_call(:build, _from, state) do
-    {:ok, manifest} = Still.Node.Process.invoke("build", [configuration()])
+    {:ok, manifest} = Still.Node.Process.invoke("build", [configuration()], timeout: :infinity)
 
-    {:reply, manifest, state}
+    {:reply, manifest, %{state | manifest: manifest}}
   end
 
   defp configuration do

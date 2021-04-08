@@ -4,28 +4,39 @@ defmodule Still.Snowpack.MixProject do
   def project do
     [
       app: :still_snowpack,
+      description: "Snowpack support for Still",
       version: "0.1.0",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
+      package: package(),
       deps: deps()
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     [
       extra_applications: [:logger]
-      # mod: {Still.Snowpack.Application, []}
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
       {:still, "~> 0.4.0"},
       {:still_node, "~> 0.1.0"}
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+    ]
+  end
+
+  defp package() do
+    [
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/still-ex/still_snowpack"},
+      files: [
+        "LICENSE",
+        "mix*",
+        "lib/*",
+        "priv/index*",
+        "priv/package*"
+      ]
     ]
   end
 end
