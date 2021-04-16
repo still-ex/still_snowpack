@@ -10,7 +10,7 @@ defmodule Still.Snowpack.TemplateHelpers do
       """
     else
       """
-      <link rel="stylesheet" href="http://localhost:3001/#{name}" />
+      <link rel="stylesheet" href="http://localhost:#{port()}/#{name}" />
       """
     end
   end
@@ -27,7 +27,7 @@ defmodule Still.Snowpack.TemplateHelpers do
       <script>
         window.HMR_WEBSOCKET_URL = 'ws://localhost:3002';
       </script>
-      <script src="http://localhost:3001/#{name}" type="module"></script>
+      <script src="http://localhost:#{port()}/#{name}" type="module"></script>
       """
     end
   end

@@ -13,6 +13,10 @@ defmodule Still.Snowpack.Utils do
     |> Path.relative_to(Still.Utils.get_output_path())
   end
 
+  def port do
+    config(:port, 3001)
+  end
+
   @doc """
   Returns the value configured for `:still_snowpack` by the given key. Errors if it
   doesn't exist.

@@ -24,12 +24,12 @@ module.exports.build = async (opts) => {
   return result;
 };
 
-function createConfig({ inputPath, outputPath }) {
+function createConfig({ inputPath, outputPath, port, hmrPort }) {
   return snowpack.loadConfiguration({
     root: inputPath,
     devOptions: {
-      port: 3001,
-      hmrPort: 3002,
+      port,
+      hmrPort,
       open: "none",
     },
     packageOptions: {

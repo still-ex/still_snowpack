@@ -38,7 +38,9 @@ defmodule Still.Snowpack.Process do
   defp configuration do
     %{
       inputPath: get_input_path(),
-      outputPath: get_output_path()
+      outputPath: get_output_path(),
+      port: port(),
+      hmrPort: config(:hmr_port, 3002)
     }
   end
 end

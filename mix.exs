@@ -34,8 +34,9 @@ defmodule Still.Snowpack.MixProject do
         "LICENSE",
         "mix*",
         "lib/*",
-        "priv/index*",
-        "priv/package*"
+        "priv/package/index*",
+        "priv/package/package.json",
+        "priv/package/package-lock.json"
       ]
     ]
   end

@@ -29,6 +29,8 @@ config :still,
   ...
 
 config :still_snowpack,
+  port: 3001, # optional
+  hmr_port: 3002, # optional
   input: Path.join(Path.dirname(__DIR__), "assets"),
   output: Path.join([Path.dirname(__DIR__), "_site", "assets"])
 ```
@@ -87,7 +89,7 @@ defmodule YourModule.Application do
 end
 ```
 
-If you don't have `Application`, create a file in `lib/your_module/application.ex` with the contentes above, and update your `mix.exs` with the following:
+_If you don't have `Application`, create a file in `lib/your_module/application.ex` with the contentes above, and update your `mix.exs` with the following:_
 
 ```elixir
 ...
@@ -126,11 +128,18 @@ Put some Javascript in `assets/src`. For instance, in `assets/src/index.js`:
 console.log("Hello World!");
 ```
 
-Import the file in a template:
+The last step is to import the JavaScript file from a Still template, for
+instance, in you `_layout.slime`:
 
 ```
-= import_js_file("index.js")
+html
+  head
+    = import_js_file("index.js")
+  body
+    = @children
 ```
+
+Besides the `import_js_file`, there's also an `import_css_file`.
 
 And it's finished.
 
