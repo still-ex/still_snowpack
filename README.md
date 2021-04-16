@@ -1,6 +1,8 @@
 # Still.Snowpack
 
-Adds [Snowpack][snowpack] support to [Still][still].
+Adds [Snowpack][snowpack] support to [Still][still]. For an example of
+a website using this package with [Tailwind](https://tailwindcss.com/) see
+[here](https://github.com/gabrielpoca/gabrielpoca.com/tree/bddd8e0df0f38b2417c51aaa25d6e5d00e279460)
 
 ## Installation
 
