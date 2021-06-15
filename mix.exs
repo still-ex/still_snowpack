@@ -5,7 +5,7 @@ defmodule Still.Snowpack.MixProject do
     [
       app: :still_snowpack,
       description: "Snowpack support for Still",
-      version: "0.1.1",
+      version: "0.2.0",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       package: package(),
@@ -21,7 +21,7 @@ defmodule Still.Snowpack.MixProject do
 
   defp deps do
     [
-      {:still, "~> 0.5.0"},
+      {:still, "~> 0.6.0"},
       {:still_node, "~> 0.1.0"}
     ]
   end
